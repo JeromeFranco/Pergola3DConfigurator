@@ -1,0 +1,35 @@
+.Footer {
+  height: 125px;
+  background: #001242;
+  display: flex;
+  color: #fff;
+}
+
+.Footer-section {
+  border-right: #fff 1px solid;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* .Footer-section:first-child {
+  width: 300px;
+  flex: 0;
+} */
+
+.Footer-section:last-child {
+  border-right: none; 
+}
+
+.Footer-section > div:first-child {
+  padding-left: 20px;
+  padding-right: 15px;
+}
+
+.Footer-download {
+  background: #0089d3;
+}
+
+.Footer-model-select {
+  width: 100px;
+}

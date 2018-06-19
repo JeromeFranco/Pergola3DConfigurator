@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.App-main {
+  flex: 1;
+  display: flex;
+  border-bottom: #fff 1px solid;
+}
+
+
+
+
