@@ -28,19 +28,19 @@ export const colorOptions = [
     value: 'color1',
     selected: true,
     className: 'color1', // this css class allows you to style option (e.g. set background image)
-    textureUrl: 'https://image.ibb.co/jaavud/Pergola_Albedo_Color1.png'
+    textureUrl: 'https://image.ibb.co/f8OJAJ/Pergola_Albedo_Color1.png'
   },
   {
     value: 'color2',
     selected: false,
     className: 'color2',
-    textureUrl: 'https://image.ibb.co/njPoEd/Pergola_Albedo_Color2.png'
+    textureUrl: 'https://image.ibb.co/k38UHy/Pergola_Albedo_Color2.png'
   },
   {
     value: 'color3',
     selected: false,
     className: 'color2',
-    textureUrl: 'https://image.ibb.co/iyPc7y/Pergola_Albedo_Color3.png'
+    textureUrl: 'https://image.ibb.co/iEMicy/Pergola_Albedo_Color3.png'
   }
 ]
 
