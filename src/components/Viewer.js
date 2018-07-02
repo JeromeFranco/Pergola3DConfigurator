@@ -12,14 +12,22 @@ class Viewer extends Component {
     }
   }
 
-  componentWillReceiveProps({ selectedHeight, selectedColor }) {
+  componentWillReceiveProps({ selectedHeight, selectedBaseColor, selectedSidePanelColor, showSidePanel }) {
       if(selectedHeight !== this.props.selectedHeight) {
           this.configurator.selectLegHeight(selectedHeight);
       }
 
-      if(selectedColor !== this.props.selectedColor) {
-        this.configurator.selectColor(selectedColor);
-    }
+      if(selectedBaseColor !== this.props.selectedBaseColor) {
+        this.configurator.selectBaseColor(selectedBaseColor);
+      }
+
+      if(selectedSidePanelColor !== this.props.selectedSidePanelColor) {
+        this.configurator.selectSidePanelColor(selectedSidePanelColor);
+      }
+      
+      if(showSidePanel !== this.props.showSidePanel) {
+        this.configurator.showHideSidePanel(showSidePanel);
+      }
   }
 
   render() {

@@ -27,7 +27,7 @@
 .SidePanel-menu-item > div {
   padding: 15px;
   text-align: center;
-  min-height: 120px;
+  min-height: 100px;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -44,12 +44,11 @@
 
 .SidePanel-color-option span {
   display: inline-block;
-  margin: 0 10px;
-  width: 35px;
-  height: 35px;
+  margin: 0 8px;
+  width: 20px;
+  height: 20px;
   border: 3px solid transparent;
-  border-radius: 50%;
-  text-indent: -1000px;
+  text-indent: -100px;
   overflow: hidden;
   cursor: pointer;
   background: #000;
@@ -113,4 +112,12 @@
   align-items: center;
   padding: 30px 0;
   font-size: 14px;
+}
+
+.SidePanel-menu-text input[type='checkbox'] {
+  margin-left: 12px;
+}
+
+.SidePanel-menu-item:last-child {
+  border: none;
 }
