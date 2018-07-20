@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
-import { legHeightOptions, colorOptions, sidePanelColorOptions } from '../pergolaConfigurator';
+import { legHeightOptions, colorOptions, sidePanelColorOptions, shutterPanelColorOptions } from '../pergolaConfigurator';
 import LoadingIndicator from './LoadingIndicator';
 import './SidePanel.css';
 
@@ -31,6 +31,10 @@ class SidePanel extends Component {
     this.props.onShowHideSidePanel(target.checked);
   }
 
+  handleShowShutterPanelChange = ({ target }) => {
+    this.props.onShowHideShutterPanel(target.checked);
+  }
+
   render() {
     return (
       <aside className="SidePanel">
@@ -58,8 +62,8 @@ class SidePanel extends Component {
                     colorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
                         <input type="radio" name="color" value={option.value} defaultChecked={option.selected}
-                          onChange={() => this.props.onBaseColorChange(option.textureUrl)} />
-                        <span className={option.value}>{option.value}</span>
+                          onChange={() => this.props.onBaseColorChange(option)} />
+                        <span className={option.value} style={{ backgroundImage: `url(${option.textureUrl})`}}>{option.value}</span>
                       </label>
                     )
                   }
@@ -79,8 +83,13 @@ class SidePanel extends Component {
                   {
                     sidePanelColorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
-                        <input type="radio" name="colorSidePanel" value={option.value}
-                          onChange={() => this.props.onSidePanelColorChange(option.textureUrl)} />
+                        <input
+                          type="radio"
+                          name="colorSidePanel"
+                          value={option.value}
+                          defaultChecked={option.selected}
+                          disabled={!this.props.showSidePanel}
+                          onChange={() => this.props.onSidePanelColorChange(option)} />
                         <span className={option.value}>{option.value}</span>
                       </label>
                     )
@@ -93,17 +102,22 @@ class SidePanel extends Component {
                 <div className="SidePanel-menu-text">
                   ADD SHUTTER
                   <input
-                    name="showSideShutter"
+                    name="showShutterPanel"
                     type="checkbox"
-                    // onChange={this.handleShowSidePanelChange} 
+                    onChange={this.handleShowShutterPanelChange} 
                   />
                 </div>
                 <div className="SidePanel-color-options">
-                  {
-                    colorOptions.map((option) =>
+                {
+                    shutterPanelColorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
-                        <input type="radio" name="colorShutter" value={option.value}
-                          onChange={() => this.props.onColorChange(option.textureUrl)} />
+                        <input
+                          type="radio"
+                          name="colorShutterPanel"
+                          value={option.value}
+                          defaultChecked={option.selected}
+                          disabled={!this.props.showShutterPanel}
+                          onChange={() => this.props.onShutterPanelColorChange(option)} />
                         <span className={option.value}>{option.value}</span>
                       </label>
                     )

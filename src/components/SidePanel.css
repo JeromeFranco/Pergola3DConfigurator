@@ -50,12 +50,15 @@
   border: 3px solid transparent;
   text-indent: -100px;
   overflow: hidden;
-  cursor: pointer;
   background: #000;
 }
 
-.SidePanel-color-option input:checked + span {
-  border: 3px solid white;
+.SidePanel-color-option input:not([disabled]) + span {
+  cursor: pointer;
+}
+
+.SidePanel-color-option input:checked:not([disabled]) + span {
+  border: 3px solid #1284e7;
 }
 
 .SidePanel-color-option input {
@@ -63,16 +66,22 @@
   position: absolute;
 }
 
-.SidePanel-color-option span[class*='color2'] {
-  background: #fff url(../assets/Color2_bg.JPG) no-repeat center;
+.SidePanel-color-option span[class*='sidePanelColor1'],
+.SidePanel-color-option span[class*='shutterPanelColor1'] {
+  background: #5f3915 url(../assets/options-bg/WoodDark.jpg) no-repeat center;
+  color: transparent;
 }
 
-.SidePanel-color-option span[class*='color1'] {
-  background: #fff url(../assets/Color1_bg.JPG) no-repeat center;
+.SidePanel-color-option span[class*='sidePanelColor2'],
+.SidePanel-color-option span[class*='shutterPanelColor2'] {
+  background: grey url(../assets/options-bg/FabricSC2020.png) no-repeat center;
+  color: transparent;
 }
 
-.SidePanel-color-option span[class*='color3'] {
-  background: #fff url(../assets/Color3_bg.JPG) no-repeat center;
+.SidePanel-color-option span[class*='sidePanelColor3'],
+.SidePanel-color-option span[class*='shutterPanelColor3'] {
+  background: white url(../assets/options-bg/White.png) no-repeat center;
+  color: transparent;
 }
 
 .SidePanel-height-option {

@@ -12,7 +12,7 @@ class Viewer extends Component {
     }
   }
 
-  componentWillReceiveProps({ selectedHeight, selectedBaseColor, selectedSidePanelColor, showSidePanel }) {
+  componentWillReceiveProps({ selectedHeight, selectedBaseColor, selectedSidePanelColor, selectedShutterPanelColor, showSidePanel, showShutterPanel }) {
       if(selectedHeight !== this.props.selectedHeight) {
           this.configurator.selectLegHeight(selectedHeight);
       }
@@ -24,9 +24,17 @@ class Viewer extends Component {
       if(selectedSidePanelColor !== this.props.selectedSidePanelColor) {
         this.configurator.selectSidePanelColor(selectedSidePanelColor);
       }
+
+      if(selectedShutterPanelColor !== this.props.selectedShutterPanelColor) {
+        this.configurator.selectShutterPanelColor(selectedShutterPanelColor);
+      }
       
       if(showSidePanel !== this.props.showSidePanel) {
         this.configurator.showHideSidePanel(showSidePanel);
+      }
+      
+      if(showShutterPanel !== this.props.showShutterPanel) {
+        this.configurator.showHideShutterPanel(showShutterPanel);
       }
   }
 
