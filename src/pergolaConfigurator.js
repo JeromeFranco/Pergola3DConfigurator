@@ -27,154 +27,125 @@ export const legHeightOptions = [
 
 export const sidePanelColorOptions = [
   {
-    value: 'sidePanelColor1',
+    value: 'SideWoodDark',
     selected: true,
-    className: 'sidePanelColor1', // this css class allows you to style option (e.g. set background image)
+    className: 'SideWoodDark', // this css class allows you to style option (e.g. set background image)
   },
   {
-    value: 'sidePanelColor2',
+    value: 'SideWoodLight',
     selected: false,
-    className: 'sidePanelColor2',
+    className: 'SideWoodLight',
   },
   {
-    value: 'sidePanelColor3',
+    value: 'SideWhite',
     selected: false,
-    className: 'sidePanelColor3',
+    className: 'SideWhite',
   },
 ];
 
 export const shutterPanelColorOptions = [
   {
-    value: 'shutterPanelColor1',
+    value: 'ShutterBrown',
     selected: true,
-    className: 'shutterPanelColor1', // this css class allows you to style option (e.g. set background image)
+    className: 'ShutterBrown', // this css class allows you to style option (e.g. set background image)
   },
   {
-    value: 'shutterPanelColor2',
+    value: 'ShutterGrey',
     selected: false,
-    className: 'shutterPanelColor2',
+    className: 'ShutterGrey',
   },
   {
-    value: 'shutterPanelColor3',
+    value: 'ShutterWhite',
     selected: false,
-    className: 'shutterPanelColor3',
+    className: 'ShutterWhite',
   },
 ];
 
 export const colorOptions = [
   {
-    value: 'black',
+    value: 'BaseBlack',
     selected: true,
     className: 'color1', // this css class allows you to style option (e.g. set background image)
     textureUrl: `${TEXTURE_PATH}/base/PergolaBaseBlack.png`,
-    sidePanelColors: [
-      { 
-        value: 'sidePanelColor1', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseBlackSidepanels1.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterBrownSideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterBrownSideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterBrownSideWhite.png` },
-        ] 
-      },
-      { 
-        value: 'sidePanelColor2', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseBlackSidepanels2.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterGreySideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterGreySideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterGreySideWhite.png` },
-        ]
-      },
-      { 
-        value: 'sidePanelColor3', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseBlackSidepanels3.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterWhiteSideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterWhiteSideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseBlackShutterWhiteSideWhite.png` },
-        ]
-      }
-    ]
   },
   {
-    value: 'grey',
+    value: 'BaseGrey',
     selected: false,
     className: 'color2',
     textureUrl: `${TEXTURE_PATH}/base/PergolaBaseGrey.png`,
-    sidePanelColors: [
-      { 
-        value: 'sidePanelColor1', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseGreySidepanels1.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterBrownSideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterBrownSideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterBrownSideWhite.png` },
-        ] 
-      },
-      { 
-        value: 'sidePanelColor2', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseGreySidepanels2.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterGreySideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterGreySideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterGreySideWhite.png` },
-        ] 
-      },
-      { 
-        value: 'sidePanelColor3', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseGreySidepanels3.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterWhiteSideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterWhiteSideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseGreyShutterWhiteSideWhite.png` },
-        ] 
-      }
-    ]
   },
   {
-    value: 'white',
+    value: 'BaseWhite',
     selected: false,
     className: 'color3',
     textureUrl: `${TEXTURE_PATH}/base/PergolaBaseWhite.png`,
-    sidePanelColors: [
-      { 
-        value: 'sidePanelColor1', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseWhiteSidepanels1.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterBrownSideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterBrownSideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterBrownSideWhite.png` },
-        ] 
-      },
-      { 
-        value: 'sidePanelColor2', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseWhiteSidepanels2.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterGreySideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterGreySideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterGreySideWhite.png` },
-        ] 
-      },
-      { 
-        value: 'sidePanelColor3', 
-        textureUrl: `${TEXTURE_PATH}/side-panels/Pergola_BaseWhiteSidepanels3.png`,
-        shutterPanelColors: [
-          { value: 'shutterPanelColor1', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterWhiteSideWoodDark.png` },
-          { value: 'shutterPanelColor2', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterWhiteSideGrey.png` },
-          { value: 'shutterPanelColor3', textureUrl: `${TEXTURE_PATH}/shutters/PergolaBaseWhiteShutterWhiteSideWhite.png` },
-        ] 
-      }
-    ]
   }
+];
+
+const baseTextures = [
+  `${TEXTURE_PATH}/base/PergolaBaseBlack.png`,
+  `${TEXTURE_PATH}/base/PergolaBaseGrey.png`,
+  `${TEXTURE_PATH}/base/PergolaBaseWhite.png`,
+];
+
+const sidePanelTextures = [
+  `${TEXTURE_PATH}/side-panels/PergolaBaseBlackSideWoodDark.png`,
+  `${TEXTURE_PATH}/side-panels/PergolaBaseBlackSideWoodLight.png`,
+  `${TEXTURE_PATH}/side-panels/PergolaBaseBlackSideWhite.png`,
+
+  `${TEXTURE_PATH}/side-panels/PergolaBaseGreySideWoodDark.png`,
+  `${TEXTURE_PATH}/side-panels/PergolaBaseGreySideWoodLight.png`,
+  `${TEXTURE_PATH}/side-panels/PergolaBaseGreySideWhite.png`,
+
+  `${TEXTURE_PATH}/side-panels/PergolaBaseWhiteSideWoodDark.png`,
+  `${TEXTURE_PATH}/side-panels/PergolaBaseWhiteSideWoodLight.png`,
+  `${TEXTURE_PATH}/side-panels/PergolaBaseWhiteSideWhite.png`,
+];
+
+const shutterPanelTextures = [
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWoodDarkShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWoodDarkShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWoodDarkShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWoodLightShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWoodLightShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWoodLightShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWhiteShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWhiteShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseBlackSideWhiteShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWoodDarkShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWoodDarkShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWoodDarkShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWoodLightShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWoodLightShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWoodLightShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWhiteShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWhiteShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseGreySideWhiteShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodDarkShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodDarkShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodDarkShutterWhite.png`,
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterWhite.png`,  
+
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWhiteShutterBrown.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWhiteShutterGrey.png`,
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWhiteShutterWhite.png`,
 ];
 
 class Configurator {
   api = null;
   textureId;
   selectedBaseColor = colorOptions.find(c => c.selected);
-  selectedSidePanelColor;
-  selectedShutterPanelColor;
+  selectedSidePanelColor = sidePanelColorOptions.find(sp => sp.selected);
+  selectedShutterPanelColor = shutterPanelColorOptions.find(sp => sp.selected);
   selectedLegHeight = null;
   showSidePanel = false;
   sidePanelTexturesLoaded = false;
@@ -183,11 +154,6 @@ class Configurator {
   shutterPanelId;
   roofPanelId;
   onLoaded;
-
-  constructor() {
-    this.selectedSidePanelColor = this.selectedBaseColor.sidePanelColors.find(sp => sp.value === (sidePanelColorOptions.find(sp => sp.selected).value));
-    this.selectedShutterPanelColor = this.selectedSidePanelColor.shutterPanelColors.find(sp => sp.value === (shutterPanelColorOptions.find(sp => sp.selected).value));
-  }
 
   init(iframe) {
     const client = new window.Sketchfab(iframe);
@@ -203,11 +169,11 @@ class Configurator {
                 this.api = api;
                 this.initializeOptions();
                 Promise.all([
-                  this.loadBaseTextures(),
+                  this.loadTextures(baseTextures),
                   this.getTextureId()
-                ]).then(([baseTextures, textureId]) => {
+                ]).then(([textureIds, textureId]) => {
                   this.textureId = textureId;
-                  this.selectBaseColor(baseTextures.find(bt => bt.selected));
+                  this.selectBaseColor(this.selectedBaseColor);
                   resolve(true);
                 });
             });
@@ -222,12 +188,15 @@ class Configurator {
   initializeOptions() {
     this.api.getNodeMap((err, nodes) => {
       console.log(nodes);
+
+      const nodeList = Object.values(nodes);
+
       legHeightOptions.forEach((option) => {
-        option.id = Object.values(nodes)
+        option.id = nodeList
           .find(node => node.name && node.name.includes(`Legs${option.value}`) && node.type === 'Group')
           .instanceID;
 
-        const sidePanelId = Object.values(nodes)
+        const sidePanelId = nodeList
           .find(node => node.name && node.name.includes(`SidePanel_${option.value}`) && node.type === 'Group')
           .instanceID;
         
@@ -238,11 +207,11 @@ class Configurator {
         }
       });
 
-      this.shutterPanelId = Object.values(nodes)
+      this.shutterPanelId = nodeList
           .find(node => node.name && node.name.includes(`ShutterPanel`) && node.type === 'Group')
           .instanceID;
         
-      this.roofPanelId = Object.values(nodes)
+      this.roofPanelId = nodeList
         .find(node => node.name && node.name.includes(`RoofPanels`) && node.type === 'Group')
         .instanceID;
 
@@ -274,91 +243,56 @@ class Configurator {
   }
 
   selectBaseColor(option) {
-    const { textureUrl } = this.showSidePanel ? 
-      option.sidePanelColors.find(sp => sp.value === this.selectedSidePanelColor.value) : option;
-      
-    this.api.updateTexture(
-      textureUrl,
-      this.textureId,
-      function ( err, textureUid ) {
-          console.log( 'replaced texture with uid: ' + textureUid );
-      }
-    );
-
     this.selectedBaseColor = option;
+    this.applyTexture();
   }
   
   selectSidePanelColor(option) {
-    const sidePanelColor = this.selectedBaseColor.sidePanelColors.find(sp => sp.value === option.value);
-    
-    this.api.updateTexture(
-      sidePanelColor.textureUrl,
-      this.textureId,
-      function ( err, textureUid ) {
-          console.log( 'replaced texture with uid: ', sidePanelColor.textureUrl );
-      }
-    );
-
-    this.selectedSidePanelColor = sidePanelColor;
+    this.selectedSidePanelColor = option;
+    this.applyTexture();
   }
 
   selectShutterPanelColor(option) {
-    const shutterPanelColor = this.selectedSidePanelColor.shutterPanelColors.find(sp => sp.value === option.value);
-    
+    this.selectedShutterPanelColor = option;
+    this.applyTexture();
+  }
+
+  applyTexture() {
+    let textureFolder = 'base';
+    if (this.showShutterPanel) {
+      textureFolder = 'shutters'
+    } else if (this.showSidePanel) {
+      textureFolder = 'side-panels';
+    }
+
+    const textureFileName = `Pergola${
+      this.selectedBaseColor.value
+    }${
+      !this.showSidePanel && !this.showShutterPanel ? '' : this.selectedSidePanelColor.value
+    }${
+      this.showShutterPanel ? `${this.selectedShutterPanelColor.value}` : ''
+    }`;
+
+    const textureFullPath = `${TEXTURE_PATH}/${textureFolder}/${textureFileName}.png`;
+
     this.api.updateTexture(
-      shutterPanelColor.textureUrl,
+      textureFullPath,
       this.textureId,
       function ( err, textureUid ) {
-          console.log( 'replaced texture with uid: ', shutterPanelColor.textureUrl );
+          console.log( 'replaced texture with uid: ', textureFullPath );
       }
     );
-
-    this.selectedShutterPanelColor = shutterPanelColor;
   }
 
-  loadBaseTextures() {
-    const textureIds = colorOptions.map((option) => {
-      return new Promise((resolve,reject) => {
-        this.api.addTexture(option.textureUrl, (err, textureUid) => {
-            if(err !== null) reject(err);
-            resolve(option);
+  loadTextures(textures) {
+    const textureIds = textures.map((texture) => 
+      new Promise((resolve, reject) => {
+        this.api.addTexture(texture, (err, textureUid) => {
+            if (err !== null) reject(err);
+            resolve(texture);
         });
-      });
-    });
-
-    return Promise.all(textureIds);
-  }
-
-  loadSidePanelTextures() {
-    const textureIds = colorOptions
-      .reduce((acc, curr) => [ ...acc, ...curr.sidePanelColors], [])
-      .map((option) => new Promise((resolve,reject) => {
-          this.api.addTexture(option.textureUrl, (err, textureUid) => {
-              if (err !== null) reject(err);
-              resolve(textureUid);
-          });
-        })
-      );
-
-    this.sidePanelTexturesLoaded = true;
-
-    return Promise.all(textureIds);
-  }
-
-  loadShutterPanelTextures() {
-    const textureIds = colorOptions
-      .reduce((acc, curr) => [ ...acc, ...curr.sidePanelColors], [])
-      .reduce((acc, curr) => [ ...acc, ...curr.shutterPanelColors], [])
-      .filter((option) => option.value)
-      .map((option) => new Promise((resolve,reject) => {
-          this.api.addTexture(option.textureUrl, (err, textureUid) => {
-              if (err !== null) reject(err);
-              resolve(textureUid);
-          });
-        })
-      );
-    
-    this.shutterPanelTexturesLoaded = true;
+      })
+    );
 
     return Promise.all(textureIds);
   }
@@ -374,29 +308,34 @@ class Configurator {
   }
 
   async showHideSidePanel(show) {
+    this.showSidePanel = show;
+
     if (show) {
       if (!this.sidePanelTexturesLoaded) {
-        await this.loadSidePanelTextures();
+        const textureIds = await this.loadTextures(sidePanelTextures);
+        this.sidePanelTexturesLoaded = textureIds && textureIds.length;
       }
       this.api.show(this.selectedLegHeight.sidePanelId);
       this.selectSidePanelColor(this.selectedSidePanelColor);
     } else {
       this.api.hide(this.selectedLegHeight.sidePanelId);
     }
-    this.showSidePanel = show;
   }
 
   async showHideShutterPanel(show) {
+    this.showShutterPanel = show;
+
     if (show) {
       if (!this.shutterTexturesLoaded) {
-        await this.loadShutterPanelTextures();
+        const textureIds = await this.loadTextures(shutterPanelTextures);
+        this.shutterPanelTexturesLoaded = textureIds && textureIds.length;
       }
       this.api.show(this.shutterPanelId);
       this.selectShutterPanelColor(this.selectedShutterPanelColor);
     } else {
       this.api.hide(this.selectedLegHeight.sidePanelId);
     }
-    this.showShutterPanel = show;
   }
 }
- export default Configurator;
+
+export default Configurator;

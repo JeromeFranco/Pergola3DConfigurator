@@ -66,21 +66,33 @@
   position: absolute;
 }
 
-.SidePanel-color-option span[class*='sidePanelColor1'],
-.SidePanel-color-option span[class*='shutterPanelColor1'] {
+.SidePanel-color-option span[class*='SideWoodDark'] {
   background: #5f3915 url(../assets/options-bg/WoodDark.jpg) no-repeat center;
   color: transparent;
 }
 
-.SidePanel-color-option span[class*='sidePanelColor2'],
-.SidePanel-color-option span[class*='shutterPanelColor2'] {
-  background: grey url(../assets/options-bg/FabricSC2020.png) no-repeat center;
+.SidePanel-color-option span[class*='SideWoodLight'] {
+  background: grey url(../assets/options-bg/WoodLight.png) no-repeat center;
   color: transparent;
 }
 
-.SidePanel-color-option span[class*='sidePanelColor3'],
-.SidePanel-color-option span[class*='shutterPanelColor3'] {
+.SidePanel-color-option span[class*='SideWhite'] {
   background: white url(../assets/options-bg/White.png) no-repeat center;
+  color: transparent;
+}
+
+.SidePanel-color-option span[class*='ShutterBrown'] {
+  background: #5f3915 url(../assets/options-bg/FabricSC0708.png) no-repeat center;
+  color: transparent;
+}
+
+.SidePanel-color-option span[class*='ShutterGrey'] {
+  background: #5f3915 url(../assets/options-bg/Grey.png) no-repeat center;
+  color: transparent;
+}
+
+.SidePanel-color-option span[class*='ShutterWhite'] {
+  background: #5f3915 url(../assets/options-bg/White.png) no-repeat center;
   color: transparent;
 }
 
