@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import Configurator from '../pergolaConfigurator';
 import './Viewer.css';
 
 class Viewer extends Component {
   async componentDidMount() {
-    this.configurator = new Configurator();
+    this.configurator = this.props.configurator;
     window.configurator = this.configurator;
-    const loaded = await this.configurator.init(this.iframe);
-    if (loaded) {
-      this.props.onLoaded(loaded);
-    }
+    this.configurator.init(this.iframe);
   }
 
   componentWillReceiveProps({ selectedHeight, selectedBaseColor, selectedSidePanelColor, selectedShutterPanelColor, showSidePanel, showShutterPanel }) {

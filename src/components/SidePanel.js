@@ -39,8 +39,6 @@ class SidePanel extends Component {
     return (
       <aside className="SidePanel">
         <div className="SidePanel-logo" />
-        { 
-          this.props.optionsLoaded ? 
           <ul className="SidePanel-menu">
             <li className="SidePanel-menu-item">
               <div>
@@ -59,13 +57,13 @@ class SidePanel extends Component {
                 <div className="SidePanel-menu-text">BASE COLOR OPTIONS</div>
                 <div className="SidePanel-color-options">
                   {
-                    colorOptions.map((option) =>
+                    this.props.baseColorLoaded ? colorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
                         <input type="radio" name="color" value={option.value} defaultChecked={option.selected}
                           onChange={() => this.props.onBaseColorChange(option)} />
                         <span className={option.value} style={{ backgroundImage: `url(${option.textureUrl})`}}>{option.value}</span>
                       </label>
-                    )
+                    ) : <LoadingIndicator />
                   }
                 </div>
               </div>
@@ -77,11 +75,12 @@ class SidePanel extends Component {
                   <input
                     name="showSidePanel"
                     type="checkbox"
+                    disabled={!this.props.sidePanelColorLoaded}
                     onChange={this.handleShowSidePanelChange} />
                 </div>
                 <div className="SidePanel-color-options">
                   {
-                    sidePanelColorOptions.map((option) =>
+                    this.props.sidePanelColorLoaded ? sidePanelColorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
                         <input
                           type="radio"
@@ -92,7 +91,7 @@ class SidePanel extends Component {
                           onChange={() => this.props.onSidePanelColorChange(option)} />
                         <span className={option.value}>{option.value}</span>
                       </label>
-                    )
+                    ) : <LoadingIndicator />
                   }
                 </div>
               </div>
@@ -104,12 +103,13 @@ class SidePanel extends Component {
                   <input
                     name="showShutterPanel"
                     type="checkbox"
+                    disabled={!this.props.shutterPanelColorLoaded}
                     onChange={this.handleShowShutterPanelChange} 
                   />
                 </div>
                 <div className="SidePanel-color-options">
                 {
-                    shutterPanelColorOptions.map((option) =>
+                    this.props.shutterPanelColorLoaded ? shutterPanelColorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
                         <input
                           type="radio"
@@ -120,17 +120,12 @@ class SidePanel extends Component {
                           onChange={() => this.props.onShutterPanelColorChange(option)} />
                         <span className={option.value}>{option.value}</span>
                       </label>
-                    )
+                    ) : <LoadingIndicator />
                   }
                 </div>
               </div>
             </li>
-          </ul> :
-          <div className='SidePanel-loading'>
-            <LoadingIndicator />
-            Loading options...
-          </div>
-        }
+          </ul>
       </aside>
     );
   }

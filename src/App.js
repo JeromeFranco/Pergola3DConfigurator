@@ -2,18 +2,33 @@ import React, { Component } from 'react';
 import SidePanel from './components/SidePanel';
 import Footer from './components/Footer';
 import Viewer from './components/Viewer';
+import Configurator from './pergolaConfigurator';
 import './App.css';
 
 class App extends Component {
-  state = {
-    selectedHeight: '',
-    selectedBaseColor: '',
-    selectedSidePanelColor: '',
-    selectedShutterPanelColor: '',
-    viewerLoaded: false,
-    showSidePanel: false,
-    showShutterPanel: false
+  constructor(props) {
+    super(props);
+    this.configurator = new Configurator(
+      this.handleBaseTexturesLoaded, 
+      this.handleSidePanelTexturesLoaded, 
+      this.handleShutterPanelTexturesLoaded
+    );
+    this.state = {
+      selectedHeight: '',
+      selectedBaseColor: '',
+      selectedSidePanelColor: '',
+      selectedShutterPanelColor: '',
+      baseColorLoaded: false,
+      sidePanelColorLoaded: false,
+      shutterPanelColorLoaded: false,
+      showSidePanel: false,
+      showShutterPanel: false
+    }
   }
+
+  handleBaseTexturesLoaded = textureIds => this.setState({ baseColorLoaded: (textureIds && textureIds.length) });
+  handleSidePanelTexturesLoaded = textureIds => this.setState({ sidePanelColorLoaded: (textureIds && textureIds.length) });
+  handleShutterPanelTexturesLoaded = textureIds => this.setState({ shutterPanelColorLoaded: (textureIds && textureIds.length) });
 
   handleHeightChange = (selectedHeight) => {
     this.setState({ selectedHeight });
@@ -31,10 +46,6 @@ class App extends Component {
     this.setState({ selectedShutterPanelColor });
   }
   
-  handleLoaded = () => {
-    this.setState({ viewerLoaded: true });
-  }
-
   handleShowHideSidePanel = (showSidePanel) => {
     this.setState({ showSidePanel });
   }
@@ -54,12 +65,14 @@ class App extends Component {
             onShutterPanelColorChange={this.handleShutterPanelColorChange}
             onShowHideSidePanel={this.handleShowHideSidePanel}
             onShowHideShutterPanel={this.handleShowHideShutterPanel}
-            optionsLoaded={this.state.viewerLoaded}
+            baseColorLoaded={this.state.baseColorLoaded}
+            sidePanelColorLoaded={this.state.sidePanelColorLoaded}
+            shutterPanelColorLoaded={this.state.shutterPanelColorLoaded}
             showSidePanel={this.state.showSidePanel}
             showShutterPanel={this.state.showShutterPanel}
           />
           <Viewer
-            onLoaded={this.handleLoaded}
+            configurator={this.configurator}
             selectedHeight={this.state.selectedHeight}
             selectedBaseColor={this.state.selectedBaseColor}
             selectedSidePanelColor={this.state.selectedSidePanelColor}

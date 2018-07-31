@@ -40,6 +40,7 @@
 
 .SidePanel-color-options {
   margin-top: 5px;
+  min-height: 30px;
 }
 
 .SidePanel-color-option span {

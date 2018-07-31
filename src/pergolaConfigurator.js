@@ -153,7 +153,13 @@ class Configurator {
   shutterPanelTexturesLoaded = false;
   shutterPanelId;
   roofPanelId;
-  onLoaded;
+  
+
+  constructor(onBaseTexturesLoaded, onSidePanelTexturesLoaded, onShutterPanelTexturesLoaded) {
+    this.onBaseTexturesLoaded = onBaseTexturesLoaded;
+    this.onSidePanelTexturesLoaded = onSidePanelTexturesLoaded;
+    this.onShutterPanelTexturesLoaded = onShutterPanelTexturesLoaded;
+  }
 
   init(iframe) {
     const client = new window.Sketchfab(iframe);
@@ -168,12 +174,11 @@ class Configurator {
             api.addEventListener('viewerready', () => {
                 this.api = api;
                 this.initializeOptions();
-                Promise.all([
-                  this.loadTextures(baseTextures),
-                  this.getTextureId()
-                ]).then(([textureIds, textureId]) => {
+                this.getTextureId().then((textureId) => {
                   this.textureId = textureId;
-                  this.selectBaseColor(this.selectedBaseColor);
+                  this.loadTextures(baseTextures).then(this.onBaseTexturesLoaded);
+                  this.loadTextures(sidePanelTextures).then(this.onSidePanelTexturesLoaded);
+                  this.loadTextures(shutterPanelTextures).then(this.onShutterPanelTexturesLoaded);
                   resolve(true);
                 });
             });
@@ -187,7 +192,6 @@ class Configurator {
 
   initializeOptions() {
     this.api.getNodeMap((err, nodes) => {
-      console.log(nodes);
 
       const nodeList = Object.values(nodes);
 
