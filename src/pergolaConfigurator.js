@@ -1,4 +1,4 @@
-const URLID = '3696a34a8dc44cb2ab4c9f730e2cf101';
+const URLID = 'c4ee1e19279e46cc9fba6deeabffcf1d';
 const TEXTURE_PATH = 'https://pergola-configurator.azurewebsites.net/static/media';
 
 export const legHeightOptions = [
@@ -191,17 +191,17 @@ class Configurator {
   }
 
   initializeOptions() {
-    this.api.getNodeMap((err, nodes) => {
-
+    this.api.getNodeMap((_, nodes) => {
+console.log(nodes);
       const nodeList = Object.values(nodes);
 
       legHeightOptions.forEach((option) => {
         option.id = nodeList
-          .find(node => node.name && node.name.includes(`Legs${option.value}`) && node.type === 'Group')
+          .find(node => node.name && node.name.includes(`LegsH${option.value}`) && node.type === 'Group')
           .instanceID;
 
         const sidePanelId = nodeList
-          .find(node => node.name && node.name.includes(`SidePanel_${option.value}`) && node.type === 'Group')
+          .find(node => node.name && node.name.includes(`SidePanelH${option.value}`) && node.type === 'Group')
           .instanceID;
         
         option.sidePanelId = sidePanelId;
@@ -337,7 +337,7 @@ class Configurator {
       this.api.show(this.shutterPanelId);
       this.selectShutterPanelColor(this.selectedShutterPanelColor);
     } else {
-      this.api.hide(this.selectedLegHeight.sidePanelId);
+      this.api.hide(this.shutterPanelId);
     }
   }
 }
