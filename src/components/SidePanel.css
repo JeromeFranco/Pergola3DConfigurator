@@ -24,6 +24,10 @@
   border-bottom: #fff 1px solid;
 }
 
+.SidePanel-menu-item input:not([disabled])[type="checkbox"] {
+  cursor: pointer;
+}
+
 .SidePanel-menu-item > div {
   padding: 15px;
   text-align: center;
