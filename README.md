@@ -1,4 +1,4 @@
-An example of a sketchfab 3D configurator using the viewer api.
+An example of a Sketchfab 3D Configurator using the sketchfab viewer api.
 
 ## Run It Yourself
 
