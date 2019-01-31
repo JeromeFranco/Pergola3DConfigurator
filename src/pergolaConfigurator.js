@@ -1,4 +1,4 @@
-const URLID = 'c4ee1e19279e46cc9fba6deeabffcf1d';
+const URLID = '3696a34a8dc44cb2ab4c9f730e2cf101';
 const TEXTURE_PATH = 'https://pergola-configurator.azurewebsites.net/static/media';
 
 export const legHeightOptions = [
@@ -7,21 +7,21 @@ export const legHeightOptions = [
     label: '250 cm',
     id: null,
     sidePanelId: null,
-    selected: false, 
+    selected: false,
   },
   {
     value: 275,
     label: '275 cm',
     id: null,
     sidePanelId: null,
-    selected: false, 
+    selected: false,
   },
   {
     value: 300,
     label: '300 cm',
     id: null,
     sidePanelId: null,
-    selected: true, 
+    selected: true,
   },
 ];
 
@@ -133,7 +133,7 @@ const shutterPanelTextures = [
 
   `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterBrown.png`,
   `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterGrey.png`,
-  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterWhite.png`,  
+  `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWoodLightShutterWhite.png`,
 
   `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWhiteShutterBrown.png`,
   `${TEXTURE_PATH}/shutters/PergolaBaseWhiteSideWhiteShutterGrey.png`,
@@ -153,7 +153,6 @@ class Configurator {
   shutterPanelTexturesLoaded = false;
   shutterPanelId;
   roofPanelId;
-  
 
   constructor(onBaseTexturesLoaded, onSidePanelTexturesLoaded, onShutterPanelTexturesLoaded) {
     this.onBaseTexturesLoaded = onBaseTexturesLoaded;
@@ -166,44 +165,44 @@ class Configurator {
 
     return new Promise((resolve, reject) => {
       client.init(URLID, {
-          ui_infos: 0,
-          ui_controls: 0,
-          graph_optimizer: 0,
-          success: (api) => {
-            api.start();
-            api.addEventListener('viewerready', () => {
-                this.api = api;
-                this.initializeOptions();
-                this.getTextureId().then((textureId) => {
-                  this.textureId = textureId;
-                  this.loadTextures(baseTextures).then(this.onBaseTexturesLoaded);
-                  this.loadTextures(sidePanelTextures).then(this.onSidePanelTexturesLoaded);
-                  this.loadTextures(shutterPanelTextures).then(this.onShutterPanelTexturesLoaded);
-                  resolve(true);
-                });
+        ui_infos: 0,
+        ui_controls: 0,
+        graph_optimizer: 0,
+        success: (api) => {
+          api.start();
+          api.addEventListener('viewerready', () => {
+            this.api = api;
+            this.initializeOptions();
+            this.getTextureId().then((textureId) => {
+              this.textureId = textureId;
+              this.loadTextures(baseTextures).then(this.onBaseTexturesLoaded);
+              this.loadTextures(sidePanelTextures).then(this.onSidePanelTexturesLoaded);
+              this.loadTextures(shutterPanelTextures).then(this.onShutterPanelTexturesLoaded);
+              resolve(true);
             });
-          },
-          error: () => {
-            reject(false);
-          }
+          });
+        },
+        error: () => {
+          reject(false);
+        }
       });
     });
   }
 
   initializeOptions() {
     this.api.getNodeMap((_, nodes) => {
-console.log(nodes);
+      console.log(nodes);
       const nodeList = Object.values(nodes);
 
       legHeightOptions.forEach((option) => {
         option.id = nodeList
-          .find(node => node.name && node.name.includes(`LegsH${option.value}`) && node.type === 'Group')
+          .find(node => node.name && node.name.includes(`Legs${option.value}`) && node.type === 'Group')
           .instanceID;
 
         const sidePanelId = nodeList
-          .find(node => node.name && node.name.includes(`SidePanelH${option.value}`) && node.type === 'Group')
+          .find(node => node.name && node.name.includes(`SidePanel_${option.value}`) && node.type === 'Group')
           .instanceID;
-        
+
         option.sidePanelId = sidePanelId;
 
         if (!this.showSidePanel) {
@@ -212,9 +211,9 @@ console.log(nodes);
       });
 
       this.shutterPanelId = nodeList
-          .find(node => node.name && node.name.includes(`ShutterPanel`) && node.type === 'Group')
-          .instanceID;
-        
+        .find(node => node.name && node.name.includes(`ShutterPanel`) && node.type === 'Group')
+        .instanceID;
+
       this.roofPanelId = nodeList
         .find(node => node.name && node.name.includes(`RoofPanels`) && node.type === 'Group')
         .instanceID;
@@ -224,7 +223,7 @@ console.log(nodes);
       }
 
       this.api.hide(this.roofPanelId);
-      
+
       this.selectLegHeight(legHeightOptions.find(lg => lg.selected).value);
     });
   }
@@ -250,7 +249,7 @@ console.log(nodes);
     this.selectedBaseColor = option;
     this.applyTexture();
   }
-  
+
   selectSidePanelColor(option) {
     this.selectedSidePanelColor = option;
     this.applyTexture();
@@ -271,29 +270,29 @@ console.log(nodes);
 
     const textureFileName = `Pergola${
       this.selectedBaseColor.value
-    }${
+      }${
       !this.showSidePanel && !this.showShutterPanel ? '' : this.selectedSidePanelColor.value
-    }${
+      }${
       this.showShutterPanel ? `${this.selectedShutterPanelColor.value}` : ''
-    }`;
+      }`;
 
     const textureFullPath = `${TEXTURE_PATH}/${textureFolder}/${textureFileName}.png`;
 
     this.api.updateTexture(
       textureFullPath,
       this.textureId,
-      function ( err, textureUid ) {
-          console.log( 'replaced texture with uid: ', textureFullPath );
+      function (err, textureUid) {
+        console.log('replaced texture with uid: ', textureFullPath);
       }
     );
   }
 
   loadTextures(textures) {
-    const textureIds = textures.map((texture) => 
+    const textureIds = textures.map((texture) =>
       new Promise((resolve, reject) => {
         this.api.addTexture(texture, (err, textureUid) => {
-            if (err !== null) reject(err);
-            resolve(texture);
+          if (err !== null) reject(err);
+          resolve(texture);
         });
       })
     );
@@ -304,9 +303,9 @@ console.log(nodes);
   getTextureId() {
     return new Promise((resolve, reject) => {
       this.api.getTextureList((err, textureIds) => {
-        if(err !== null) reject(err);
+        if (err !== null) reject(err);
 
-        resolve( textureIds.find(t => !t.uid.includes('tmp')).uid );
+        resolve(textureIds.find(t => !t.uid.includes('tmp')).uid);
       });
     })
   }
