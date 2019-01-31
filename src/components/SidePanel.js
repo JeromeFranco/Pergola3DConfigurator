@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider from 'rc-slider';
-import { legHeightOptions, colorOptions } from '../pergolaConfigurator';
+import { legHeightOptions, colorOptions, sidePanelColorOptions, shutterPanelColorOptions } from '../pergolaConfigurator';
 import LoadingIndicator from './LoadingIndicator';
 import './SidePanel.css';
 
@@ -27,56 +27,105 @@ class SidePanel extends Component {
     this.props.onHeightChange(realValue);
   }
 
+  handleShowSidePanelChange = ({ target }) => {
+    this.props.onShowHideSidePanel(target.checked);
+  }
+
+  handleShowShutterPanelChange = ({ target }) => {
+    this.props.onShowHideShutterPanel(target.checked);
+  }
+
   render() {
     return (
       <aside className="SidePanel">
         <div className="SidePanel-logo" />
-        { 
-          this.props.optionsLoaded ? 
           <ul className="SidePanel-menu">
             <li className="SidePanel-menu-item">
               <div>
-                <div className="SidePanel-menu-text">COLOR OPTIONS</div>
+                <div className="SidePanel-menu-text">LEG HEIGHT OPTIONS</div>
+                <div className="SidePanel-height-options">
+                  <Slider
+                    {...this.getLegHeightSliderConfig()}
+                    step={null}
+                    onAfterChange={this.handleLegHeightSliderChange}
+                  />
+                </div>
+              </div>
+            </li>
+            <li className="SidePanel-menu-item">
+              <div>
+                <div className="SidePanel-menu-text">BASE COLOR OPTIONS</div>
                 <div className="SidePanel-color-options">
                   {
-                    colorOptions.map((option) =>
+                    this.props.baseColorLoaded ? colorOptions.map((option) =>
                       <label key={option.value} className="SidePanel-color-option">
                         <input type="radio" name="color" value={option.value} defaultChecked={option.selected}
-                          onChange={() => this.props.onColorChange(option.textureUrl)} />
-                        <span className={option.value}>{option.value}</span>
+                          onChange={() => this.props.onBaseColorChange(option)} />
+                        <span className={option.value} style={{ backgroundImage: `url(${option.textureUrl})`}}>{option.value}</span>
                       </label>
-                    )
+                    ) : <LoadingIndicator />
                   }
                 </div>
               </div>
             </li>
             <li className="SidePanel-menu-item">
               <div>
-                <div className="SidePanel-menu-text">LEG HEIGHT OPTIONS</div>
-                <div className="SidePanel-height-options">
-                <Slider {...this.getLegHeightSliderConfig()} step={null} onAfterChange={this.handleLegHeightSliderChange} />
-                  {/* {
-                    legHeightOptions.map((option) =>
-                      <label key={option.value} className="SidePanel-height-option">
+                <div className="SidePanel-menu-text">
+                  ADD SIDE PANEL
+                  <input
+                    name="showSidePanel"
+                    type="checkbox"
+                    disabled={!this.props.sidePanelColorLoaded}
+                    onChange={this.handleShowSidePanelChange} />
+                </div>
+                <div className="SidePanel-color-options">
+                  {
+                    this.props.sidePanelColorLoaded ? sidePanelColorOptions.map((option) =>
+                      <label key={option.value} className="SidePanel-color-option">
                         <input
                           type="radio"
-                          name="height"
+                          name="colorSidePanel"
                           value={option.value}
                           defaultChecked={option.selected}
-                          onChange={() => this.props.onHeightChange(option.value)}
-                        />
-                        <div className="tall">{option.label}</div>
-                      </label>)
-                  } */}
+                          disabled={!this.props.showSidePanel}
+                          onChange={() => this.props.onSidePanelColorChange(option)} />
+                        <span className={option.value}>{option.value}</span>
+                      </label>
+                    ) : <LoadingIndicator />
+                  }
                 </div>
               </div>
             </li>
-          </ul> :
-          <div className='SidePanel-loading'>
-            <LoadingIndicator />
-            Loading options...
-          </div>
-        }
+            <li className="SidePanel-menu-item">
+              <div>
+                <div className="SidePanel-menu-text">
+                  ADD SHUTTER
+                  <input
+                    name="showShutterPanel"
+                    type="checkbox"
+                    disabled={!this.props.shutterPanelColorLoaded}
+                    onChange={this.handleShowShutterPanelChange} 
+                  />
+                </div>
+                <div className="SidePanel-color-options">
+                {
+                    this.props.shutterPanelColorLoaded ? shutterPanelColorOptions.map((option) =>
+                      <label key={option.value} className="SidePanel-color-option">
+                        <input
+                          type="radio"
+                          name="colorShutterPanel"
+                          value={option.value}
+                          defaultChecked={option.selected}
+                          disabled={!this.props.showShutterPanel}
+                          onChange={() => this.props.onShutterPanelColorChange(option)} />
+                        <span className={option.value}>{option.value}</span>
+                      </label>
+                    ) : <LoadingIndicator />
+                  }
+                </div>
+              </div>
+            </li>
+          </ul>
       </aside>
     );
   }

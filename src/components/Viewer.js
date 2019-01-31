@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import Configurator from '../pergolaConfigurator';
 import './Viewer.css';
 
 class Viewer extends Component {
   async componentDidMount() {
-    this.configurator = new Configurator();
+    this.configurator = this.props.configurator;
     window.configurator = this.configurator;
-    const loaded = await this.configurator.init(this.iframe);
-    if (loaded) {
-      this.props.onLoaded(loaded);
-    }
+    this.configurator.init(this.iframe);
   }
 
-  componentWillReceiveProps({ selectedHeight, selectedColor }) {
+  componentWillReceiveProps({ selectedHeight, selectedBaseColor, selectedSidePanelColor, selectedShutterPanelColor, showSidePanel, showShutterPanel }) {
       if(selectedHeight !== this.props.selectedHeight) {
           this.configurator.selectLegHeight(selectedHeight);
       }
 
-      if(selectedColor !== this.props.selectedColor) {
-        this.configurator.selectColor(selectedColor);
-    }
+      if(selectedBaseColor !== this.props.selectedBaseColor) {
+        this.configurator.selectBaseColor(selectedBaseColor);
+      }
+
+      if(selectedSidePanelColor !== this.props.selectedSidePanelColor) {
+        this.configurator.selectSidePanelColor(selectedSidePanelColor);
+      }
+
+      if(selectedShutterPanelColor !== this.props.selectedShutterPanelColor) {
+        this.configurator.selectShutterPanelColor(selectedShutterPanelColor);
+      }
+      
+      if(showSidePanel !== this.props.showSidePanel) {
+        this.configurator.showHideSidePanel(showSidePanel);
+      }
+      
+      if(showShutterPanel !== this.props.showShutterPanel) {
+        this.configurator.showHideShutterPanel(showShutterPanel);
+      }
   }
 
   render() {

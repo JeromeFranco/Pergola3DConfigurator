@@ -27,7 +27,7 @@
 .SidePanel-menu-item > div {
   padding: 15px;
   text-align: center;
-  min-height: 120px;
+  min-height: 100px;
   justify-content: center;
   display: flex;
   flex-direction: column;
@@ -40,23 +40,26 @@
 
 .SidePanel-color-options {
   margin-top: 5px;
+  min-height: 30px;
 }
 
 .SidePanel-color-option span {
   display: inline-block;
-  margin: 0 10px;
-  width: 35px;
-  height: 35px;
+  margin: 0 8px;
+  width: 20px;
+  height: 20px;
   border: 3px solid transparent;
-  border-radius: 50%;
-  text-indent: -1000px;
+  text-indent: -100px;
   overflow: hidden;
-  cursor: pointer;
   background: #000;
 }
 
-.SidePanel-color-option input:checked + span {
-  border: 3px solid white;
+.SidePanel-color-option input:not([disabled]) + span {
+  cursor: pointer;
+}
+
+.SidePanel-color-option input:checked:not([disabled]) + span {
+  border: 3px solid #1284e7;
 }
 
 .SidePanel-color-option input {
@@ -64,16 +67,34 @@
   position: absolute;
 }
 
-.SidePanel-color-option span[class*='color2'] {
-  background: #fff url(../assets/Color2_bg.JPG) no-repeat center;
+.SidePanel-color-option span[class*='SideWoodDark'] {
+  background: #5f3915 url(../assets/options-bg/WoodDark.jpg) no-repeat center;
+  color: transparent;
 }
 
-.SidePanel-color-option span[class*='color1'] {
-  background: #fff url(../assets/Color1_bg.JPG) no-repeat center;
+.SidePanel-color-option span[class*='SideWoodLight'] {
+  background: grey url(../assets/options-bg/WoodLight.png) no-repeat center;
+  color: transparent;
 }
 
-.SidePanel-color-option span[class*='color3'] {
-  background: #fff url(../assets/Color3_bg.JPG) no-repeat center;
+.SidePanel-color-option span[class*='SideWhite'] {
+  background: white url(../assets/options-bg/White.png) no-repeat center;
+  color: transparent;
+}
+
+.SidePanel-color-option span[class*='ShutterBrown'] {
+  background: #5f3915 url(../assets/options-bg/FabricSC0708.png) no-repeat center;
+  color: transparent;
+}
+
+.SidePanel-color-option span[class*='ShutterGrey'] {
+  background: #5f3915 url(../assets/options-bg/Grey.png) no-repeat center;
+  color: transparent;
+}
+
+.SidePanel-color-option span[class*='ShutterWhite'] {
+  background: #5f3915 url(../assets/options-bg/White.png) no-repeat center;
+  color: transparent;
 }
 
 .SidePanel-height-option {
@@ -113,4 +134,12 @@
   align-items: center;
   padding: 30px 0;
   font-size: 14px;
+}
+
+.SidePanel-menu-text input[type='checkbox'] {
+  margin-left: 12px;
+}
+
+.SidePanel-menu-item:last-child {
+  border: none;
 }
