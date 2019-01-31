@@ -1,4 +1,4 @@
-An example of a Sketchfab 3D Configurator using the sketchfab viewer api.
+A proof of concept of a 3D product configurator using Sketchfab. Checkout the [demo](https://pergola-configurator.azurewebsites.net/)
 
 ## Run It Yourself
 
